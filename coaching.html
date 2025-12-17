@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coaching Programs - Clinton Oh | Entrepreneur, Consultant, Investor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2D3748;
+            background-color: #FFFFFF;
+            padding-top: 70px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: #1A365D;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            box-shadow: 0 2px 20px rgba(26, 54, 93, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #F7931E;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: #ffffff;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #F7931E;
+            background-color: rgba(247, 147, 30, 0.1);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #1A365D 0%, #2D5A87 100%);
+            color: white;
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://lirp.cdn-website.com/7e69d783/dms3rep/multi/opt/clinton2-1920w.png') center/cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffffff, #F7931E);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: #F7931E;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1A365D;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: #2D3748;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .program-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(26, 54, 93, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(26, 54, 93, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #F7931E, #2D5A87);
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(26, 54, 93, 0.15);
+        }
+
+        .program-card h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1A365D;
+            margin-bottom: 1rem;
+        }
+
+        .program-card p {
+            color: #2D3748;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .program-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .program-features li {
+            color: #2D3748;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .program-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #F7931E;
+            font-weight: 600;
+        }
+
+        .program-price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #F7931E;
+            margin-bottom: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #F7931E, #2D5A87);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(247, 147, 30, 0.3);
+        }
+
+        .about-clinton {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 5rem 0;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1A365D;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: #2D3748;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(26, 54, 93, 0.2);
+        }
+
+        .testimonials-section {
+            background: #1A365D;
+            color: white;
+            padding: 5rem 0;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #F7931E;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #2D5A87 0%, #1A365D 100%);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .footer {
+            background: #1A365D;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer a {
+            color: #F7931E;
+            text-decoration: none;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+                color: white;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .programs-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .program-card {
+                padding: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-text h2 {
+                font-size: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .cta-content h2 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">Clinton Oh</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Clinton</a></li>
+            <li><a href="coaching.html" class="active">Coaching Programs</a></li>
+            <li><a href="franchising.html">Franchising Solutions</a></li>
+            <li><a href="mymanager.html">MyManager CRM</a></li>
+            <li><a href="blog.html">Blog & Insights</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="mobile-menu">☰</div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="tagline">Entrepreneur. Consultant. Investor. Next Level Growth.</div>
+            <h1>Coaching Programs</h1>
+            <p>Transform your business and personal success with Clinton Oh's proven coaching methodologies. Combining vast entrepreneurial experience with cutting-edge technology for unparalleled results.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Choose Your Path to Success</h2>
+                <p>Whether you're starting your entrepreneurial journey or scaling to new heights, Clinton's coaching programs are designed to meet you where you are and take you where you want to go.</p>
+            </div>
+            
+            <div class="programs-grid">
+                <div class="program-card">
+                    <h3>Be Aligned - Individual Coaching</h3>
+                    <p>Clinton's signature one-on-one coaching program that blends his vast entrepreneurial experience with custom technology solutions for personalized growth strategies.</p>
+                    <ul class="program-features">
+                        <li>Weekly 1-on-1 sessions with Clinton</li>
+                        <li>Custom business growth strategies</li>
+                        <li>Access to proprietary technology tools</li>
+                        <li>Personal and professional alignment coaching</li>
+                        <li>Direct access to Clinton's extensive network</li>
+                        <li>Quarterly business reviews and goal setting</li>
+                    </ul>
+                    <div class="program-price">$5,000/month</div>
+                    <a href="contact.html" class="btn-primary">Start Your Journey</a>
+                </div>
+
+                <div class="program-card">
+                    <h3>Franchise Growth Accelerator</h3>
+                    <p>Designed for existing franchise owners and those looking to enter the franchise world. Leverage Clinton's multi-franchise company experience to accelerate your growth.</p>
+                    <ul class="program-features">
+                        <li>Franchise selection and evaluation</li>
+                        <li>Multi-unit development strategies</li>
+                        <li>Operational optimization systems</li>
+                        <li>Financial performance analysis</li>
+                        <li>Team building and leadership coaching</li>
+                        <li>Technology integration for efficiency</li>
+                    </ul>
+                    <div class="program-price">$3,500/month</div>
+                    <a href="contact.html" class="btn-primary">Accelerate Growth</a>
+                </div>
+
+                <div class="program-card">
+                    <h3>Business Technology Integration</h3>
+                    <p>Transform your business operations with modern technology solutions. Learn how Clinton revolutionizes businesses through Next Level Media's proven methodologies.</p>
+                    <ul class="program-features">
+                        <li>CRM implementation and optimization</li>
+                        <li>Marketing automation setup</li>
+                        <li>Business process digitization</li>
+                        <li>Data analytics and reporting systems</li>
+                        <li>Team productivity enhancement</li>
+                        <li>ROI tracking and optimization</li>
+                    </ul>
+                    <div class="program-price">$2,500/month</div>
+                    <a href="contact.html" class="btn-primary">Modernize Your Business</a>
+                </div>
+
+                <div class="program-card">
+                    <h3>Executive Mastermind Group</h3>
+                    <p>Join an exclusive group of high-performing entrepreneurs for monthly strategy sessions, networking, and collaborative problem-solving with Clinton's guidance.</p>
+                    <ul class="program-features">
+                        <li>Monthly group coaching calls</li>
+                        <li>Quarterly in-person meetups</li>
+                        <li>Peer-to-peer learning network</li>
+                        <li>Guest expert presentations</li>
+                        <li>Business case study analysis</li>
+                        <li>Exclusive member resources</li>
+                    </ul>
+                    <div class="program-price">$1,200/month</div>
+                    <a href="contact.html" class="btn-primary">Join the Mastermind</a>
+                </div>
+
+                <div class="program-card">
+                    <h3>Startup Launch Intensive</h3>
+                    <p>Perfect for aspiring entrepreneurs ready to launch their first business. Get the foundation, systems, and mindset needed for entrepreneurial success.</p>
+                    <ul class="program-features">
+                        <li>Business model development</li>
+                        <li>Market validation strategies</li>
+                        <li>Funding and investment guidance</li>
+                        <li>Legal and compliance setup</li>
+                        <li>Initial team building</li>
+                        <li>90-day launch roadmap</li>
+                    </ul>
+                    <div class="program-price">$2,000/month</div>
+                    <a href="contact.html" class="btn-primary">Launch Your Startup</a>
+                </div>
+
+                <div class="program-card">
+                    <h3>Investor Readiness Program</h3>
+                    <p>Prepare your business for investment opportunities with Clinton's extensive investor network and proven strategies for successful funding rounds.</p>
+                    <ul class="program-features">
+                        <li>Pitch deck development and refinement</li>
+                        <li>Financial modeling and projections</li>
+                        <li>Due diligence preparation</li>
+                        <li>Investor introduction opportunities</li>
+                        <li>Valuation optimization strategies</li>
+                        <li>Negotiation coaching and support</li>
+                    </ul>
+                    <div class="program-price">$4,000/month</div>
+                    <a href="contact.html" class="btn-primary">Get Investment Ready</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-clinton">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Meet Your Coach</h2>
+                    <p>Clinton is a seasoned entrepreneur and CEO of multiple franchise companies. Through his company, Next Level Media, he leverages modern technology to revolutionize business operations and foster growth.</p>
+                    <p>His personal coaching program, Be Aligned, blends vast experience with custom technology for unparalleled results in personal and business success. Renowned for problem-solving, Clinton's extensive network ensures success in overcoming hurdles.</p>
+                    <p>A committed philanthropist, he supports children worldwide through his nonprofit, Operation Child Rescue. Clinton's latest venture, mymanager.com, is a groundbreaking CRM and marketing tool engineered to save time and empower businesses of all sizes to achieve their goals efficiently.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://lirp.cdn-website.com/7e69d783/dms3rep/multi/opt/clinton-1920w.png" alt="Clinton Oh - Business Coach and Entrepreneur">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">What Clients Say</h2>
+                <p style="color: rgba(255,255,255,0.9);">Real results from real entrepreneurs who have transformed their businesses with Clinton's coaching</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>"Clinton's coaching completely transformed how I approach business. His technology integration strategies increased our efficiency by 300% in just 6 months."</p>
+                    <div class="testimonial-author">- Sarah M., Tech Startup Founder</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p>"The Be Aligned program helped me scale from one franchise location to five in under two years. Clinton's network and expertise are invaluable."</p>
+                    <div class="testimonial-author">- Marcus R., Franchise Owner</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p>"Working with Clinton opened doors I never thought possible. His investor network helped us secure our Series A funding within 4 months."</p>
+                    <div class="testimonial-author">- Jennifer L., E-commerce CEO</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Elevate Your Business?</h2>
+                <p>Clinton and his team are here to help you achieve next-level growth. Schedule your consultation today and start your transformation journey.</p>
+                <a href="contact.html" class="btn-primary" style="width: auto; padding: 1rem 3rem;">Get Started Today</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Clinton Oh. All rights reserved.</p>
+            <p>Entrepreneur. Consultant. Investor. <a href="mailto:info@clintonoh.com">info@clintonoh.com</a></p>
+        </div>
+    </footer>
+</body>
+</html>
